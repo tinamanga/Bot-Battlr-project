@@ -1,43 +1,253 @@
-.app {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: black;
+}
+
+h2, h3, h4 {
+  color: #4d21a0;
   text-align: center;
 }
 
-.bot-collection,
-.my-bot-army {
-  margin: 20px 0;
-}
-
-.bot-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.bot-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  width: 200px;
-  text-align: center;
-  background-color: #f9f9f9;
+/* Buttons */
+button {
   cursor: pointer;
-  border-radius: 8px;
-  transition: transform 0.2s;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: black;
+  border-radius: 5px;
+  margin: 5px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #9b0909;
+}
+
+/* Discharge Button Style */
+.discharge-button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.discharge-button:hover {
+  background-color: #c0392b;
+}
+
+.red-x {
+  color: red;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+/* Layout Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Bot Avatars */
+.bot-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.specs-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+/* Bot Info Blocks */
+.bot-info {
+  margin: 15px 0;
+}
+
+.bot-stats span {
+  margin-right: 10px;
+}
+
+.bot-class {
+  font-weight: bold;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Card & Collection Styling */
+.bot-card,
+.bot-collection,
+.my-army,
+.bot-specs {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #3498db;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* BotCard Styling */
+.bot-card {
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .bot-card:hover {
-  transform: scale(1.05);
-  background-color: #e6f7ff;
+  transform: scale(1.03);
+  box-shadow: 0 0 12px #3498db;
 }
 
-button {
-  margin: 5px;
-  padding: 6px 12px;
+.bot-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.bot-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.bot-card p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.bot-card p em {
+  display: block;
+  font-style: italic;
+  font-size: 13px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Bot Grid Layouts */
+.bot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.army-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+/* Army Bot Card */
+.army-bot {
   cursor: pointer;
+  text-align: center;
 }
 
-h1, h2, h3 {
-  font-family: 'Segoe UI', sans-serif;
+.army-bot img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.army-bot h4 {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* BotSpecs Component */
+.bot-specs {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.specs-avatar {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.bot-info {
+  margin-bottom: 20px;
+}
+
+.specs-buttons button {
+  width: 150px;
+}
+
+.specs-buttons button:first-child {
+  margin-right: 10px;
+}
+
+/* Filter & Sort Bars */
+.filter-bar,
+.sort-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.filter-buttons button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #d3d3d3;
+}
+
+.filter-buttons button.active {
+  background-color: #45a049;
+  color: white;
+}
+
+.filter-buttons button:hover {
+  background-color: #90e090;
+}
+
+.sort-bar select {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
 }

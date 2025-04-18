@@ -1,12 +1,20 @@
-import React from 'react';
+import React from "react";
 
-function SortBar({ setSortOrder }) {
+
+function SortBar({ setSortBy }) {
+  const handleChange = (e) => {
+    setSortBy(e.target.value);
+  };
+
   return (
     <div className="sort-bar">
-      <h3>Sort by:</h3>
-      <button onClick={() => setSortOrder('health')}>Health</button>
-      <button onClick={() => setSortOrder('damage')}>Damage</button>
-      <button onClick={() => setSortOrder('armor')}>Armor</button>
+      <label htmlFor="sort-select">Sort by:</label>
+      <select id="sort-select" onChange={handleChange} defaultValue="">
+        <option value="">None</option>
+        <option value="health">Health 🩺</option>
+        <option value="damage">Damage ⚔</option>
+        <option value="armor">Armor 🛡</option>
+      </select>
     </div>
   );
 }

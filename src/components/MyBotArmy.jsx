@@ -1,27 +1,34 @@
-import React from 'react';
+import React from "react";
 
-function MyBotArmy({ army, releaseBot, dischargeBot }) {
+
+function MyBotArmy({ bots, onRemove }) {
   return (
-    <div className="my-bot-army">
+    <div className="my-army">
       <h2>My Bot Army</h2>
-      <div className="bot-list">
-        {army.length > 0 ? (
-          army.map(bot => (
-            <div key={bot.id} className="bot-card">
-              <img src={bot.avatar_url} alt={bot.name} width="100" />
-              <h3>{bot.name}</h3>
-              <p>Class: {bot.bot_class}</p>
-              <p>Health: {bot.health} | Damage: {bot.damage} | Armor: {bot.armor}</p>
-              <div>
-                <button onClick={() => releaseBot(bot.id)}>Release</button>
-                <button onClick={() => dischargeBot(bot.id)} style={{ color: 'red' }}>Discharge ❌</button>
-              </div>
-            </div>
-          ))
+      {
+        bots.length === 0 ? (
+          <p>No bots enlisted yet.</p>
         ) : (
-          <p>Your army is empty. Start enlisting bots!</p>
-        )}
-      </div>
+          <div className="army-grid">
+            {bots.map(bot => (
+              <div
+                key={bot.id}
+                className="army-bot"
+                onClick={() => onRemove(bot.id)}
+                onDischarge={() => handleDischarge(bot.id)} //to delete from backend and army
+                showDischarge={true}
+                title="Click to release"
+              >
+                <img src={bot.avatar_url} alt={bot.name} />
+                <div>
+                  <h4>{bot.name}</h4>
+                  <small>{bot.bot_class}</small>
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
   );
 }

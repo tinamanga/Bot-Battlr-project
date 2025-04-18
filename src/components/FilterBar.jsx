@@ -1,70 +1,30 @@
-import React, { useState } from 'react';
+import React from "react"
 
-function FilterBar({ setFilters }) {
-  const [selectedClasses, setSelectedClasses] = useState([]);
+const classes = ["Support", "Medic", "Assault", "Defender", "Captain", "Witch"];
 
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setSelectedClasses(prev => {
-      const newFilters = prev.includes(value) 
-        ? prev.filter(item => item !== value) 
-        : [...prev, value];
-      setFilters(newFilters);
-      return newFilters;
-    });
+function FilterBar({ selectedFilters, setSelectedFilters }) {
+  const toggleFilter = (botClass) => {
+    if (selectedFilters.includes(botClass)) {
+      setSelectedFilters(selectedFilters.filter(c => c !== botClass));
+    } else {
+      setSelectedFilters([...selectedFilters, botClass]);
+    }
   };
 
   return (
     <div className="filter-bar">
-      <h3>Filter by Class</h3>
-      <label>
-        <input
-          type="checkbox"
-          value="Support"
-          onChange={handleChange}
-        />
-        Support
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Medic"
-          onChange={handleChange}
-        />
-        Medic
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Assault"
-          onChange={handleChange}
-        />
-        Assault
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Defender"
-          onChange={handleChange}
-        />
-        Defender
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Captain"
-          onChange={handleChange}
-        />
-        Captain
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Witch"
-          onChange={handleChange}
-        />
-        Witch
-      </label>
+      <p>Filter by Class:</p>
+      <div className="filter-buttons">
+        {classes.map(botClass => (
+          <button
+            key={botClass}
+            className={selectedFilters.includes(botClass) ? "active" : ""}
+            onClick={() => toggleFilter(botClass)}
+          >
+            {botClass}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
