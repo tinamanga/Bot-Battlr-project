@@ -1,60 +1,43 @@
-/* Reset styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Global body */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right top, #0f2027, #203a43, #2c5364);
-  color: #f0f4f8;
-  line-height: 1.6;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-}
-
-/* Centered app wrapper */
-.app-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 2rem 1rem;
-}
-
-/* Headings */
-h1, h2 {
-  color: #ffffff;
+.app {
+  font-family: Arial, sans-serif;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
-/* Bot sections */
 .bot-collection,
-.your-bot-army {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+.my-bot-army {
+  margin: 20px 0;
 }
 
-/* Bot card (glassmorphism) */
+.bot-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
 .bot-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 1.5rem;
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 200px;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  background-color: #f9f9f9;
   cursor: pointer;
-  position: relative;
+  border-radius: 8px;
+  transition: transform 0.2s;
 }
 
 .bot-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0,);
+  transform: scale(1.05);
+  background-color: #e6f7ff;
+}
+
+button {
+  margin: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  font-family: 'Segoe UI', sans-serif;
 }
