@@ -46,6 +46,12 @@ function App() {
     }
   };
 
+
+//remove from army state
+  const handleRemoveFromArmy = (id) => {
+    setMyArmy(myArmy.filter((bot) => bot.id !== id));
+  };
+  //delete from backend
   function handleDischarge(botId) {
     fetch(`http://localhost:8001/bots/${botId}`, {
       method: 'DELETE',
@@ -58,11 +64,6 @@ function App() {
       })
       .catch((err) => console.error("Failed to discharge bot:", err));
   }
-  
-//remove from army state
-  const handleRemoveFromArmy = (id) => {
-    setMyArmy(myArmy.filter((bot) => bot.id !== id));
-  };
   
 
   return (

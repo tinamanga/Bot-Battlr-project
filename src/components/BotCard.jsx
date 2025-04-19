@@ -15,7 +15,7 @@ function BotCard({ bot, onClick, onDischarge, showDischarge }) {
       {showDischarge && (
         <button
           onClick={(e) => {
-            e.stopPropagation(); // prevent parent click event
+            // e.stopPropagation(); // prevent parent click event
             onDischarge();
           }}
         

@@ -3,6 +3,7 @@ import BotCard from "./BotCard";
 
 
 function BotCollection({ bots, onSelect }) {
+  
   return (
     <div className="bot-collection">
       <h2>Available Bots</h2>
