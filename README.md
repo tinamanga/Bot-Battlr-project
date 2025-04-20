@@ -139,12 +139,12 @@
 ---
  ### License
      -This project is for educational use only.
-     
+
 ---
 
  ### Author
         -Christina Manga
-         -GitHub: @your-username
+         -GitHub: @tinamanga
 
-        - website url:
+        - website url:https://bot-battlr-project.netlify.app/
         
