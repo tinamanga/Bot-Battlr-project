@@ -19,20 +19,22 @@ function App() {
       .then((res) => res.json())
       .then((data) => setBots(data))
       .catch((err) => console.error("Failed to fetch bots:", err));
-  }, []);
+  }, 
+  
+  []);//dependency array is set to be  empty to make the useEffect run only once
 
-  // Filter and sort bots
+  // Filter  bots
   const filteredBots = bots.filter(
     (bot) => !myArmy.find((b) => b.id === bot.id)
   ).filter(
     (bot) => filters.length === 0 || filters.includes(bot.bot_class)
   );
-
+//sorting  filtered bots
   const sortedBots = [...filteredBots].sort((a, b) => {
     if (sortBy === "health") return b.health - a.health;
     if (sortBy === "damage") return b.damage - a.damage;
     if (sortBy === "armor") return b.armor - a.armor;
-    return 0;
+     return 0; //returns the bot collection without sorting
   });
 // 
   // Enlist bot (one per class)
@@ -50,7 +52,7 @@ function App() {
   const handleRemoveFromArmy = (id) => {
     setMyArmy(myArmy.filter((bot) => bot.id !== id));
   };
-  //delete from backend
+  //delete from backend(discharging bots)
   function handleDischarge(botId) {
     fetch(`http://localhost:8001/bots/${botId}`, {
       method: 'DELETE',

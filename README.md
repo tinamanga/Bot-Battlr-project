@@ -1,54 +1,137 @@
-# React + TypeScript + Vite
+# 🤖 Bot Battlr
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Bot Battlr** is a single-page React application that allows users to browse, manage, and build a custom team of battle-ready bots. It showcases skills in components, props, state, events, and data fetching using a local backend (JSON Server).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Goals
 
-## Expanding the ESLint configuration
+- Use of components and props
+- Manage state using React Hooks
+- Handle user events like clicks
+- Fetch and manipulate data from an API
+- Write clean, reusable, and organized React code
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- View a list of bots
+- Add bots to your army
+- Remove bots from your army
+- Delete bots permanently (from frontend and backend)
+- Prevent duplicate bots in the army
+- *(Advanced)* Show detailed view of a bot
+- *(Advanced)* Sort and filter bots by class or stats
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Tools Used
+
+| Technology     | Purpose                     |
+|----------------|-----------------------------|
+| React          | Frontend UI Framework       |
+| JSON Server    | Mock REST API Backend       |
+| JavaScript     | App logic and interactivity |
+| HTML/CSS       | Layout and styling          |
+| Git / GitHub   | Version control             |
+
+---
+
+## Getting Started
+
+###  Prerequisites
+
+- Node.js
+- npm
+- JSON Server (`npm install -g json-server`)
+
+---
+
+### Installation Steps
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/bot-battlr.git
+cd bot-battlr
+
+2. Install dependencies
+```bash
+  npm install
+3. Start the JSON server
+```bash
+
+json-server --watch db.json --port 8001
+Make sure db.json is in the root folder
+
+API will be available at:
+http://localhost:8001/bots
+
+4. Start the app
+```bash
+    npm start
+Frontend will be available at:
+http://localhost:3000
+
+ Project Structure
+```bash
+
+/bot-battlr
+├── db.json               # Backend data (mock API)
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── BotCard.js
+│   │   ├── BotCollection.js
+│   │   ├── YourBotArmy.js
+│   │   ├── BotSpecs.js      # (Advanced)
+│   │   └── SortBar.js       # (Advanced)
+│   ├── App.js
+│   └── index.js
+ ### API Endpoints
+   1. FETCH/bots
+       Returns all bots.
+
+    2. DELETE /bots/:id
+      Deletes a bot permanently from the backend.
+###Core Deliverables
+    1.Fetch and display bots in BotCollection
+
+    2. Add bots to YourBotArmy by clicking
+
+    3.Prevent duplicate bots in the army
+
+    4.Remove bots from army by clicking
+
+    5.Permanently delete a bot (❌) from backend
+
+   ####Optional (Advanced) Features
+
+Feature	Description
+BotSpecs View	Shows detailed bot info and actions
+SortBar	Sort bots by health, damage, or armor
+Filter by Class	Display bots by class (e.g., Medic, Witch, Support)
+One Bot Per Class	Only allow one bot per class to be in the army
+
+
+ ####Learning Outcomes
+✅ Functional components with hooks
+
+✅ Prop drilling and state lifting
+
+✅ Working with REST APIs
+
+✅ Array methods like .map(), .filter(), .find()
+
+✅ Reusable component structure
+
+ ### License
+     -This project is for educational use only.
+
+   ### Author
+        -Christina Manga
+         -GitHub: @your-username
+
+        - website url:
+        
