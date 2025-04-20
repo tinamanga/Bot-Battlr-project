@@ -104,7 +104,7 @@
 
     1.Fetch and display bots in BotCollection
 
-    2. Add bots to YourBotArmy by clicking
+    2. Add bots to MyBotArmy by clicking
 
     3.Prevent duplicate bots in the army
 
