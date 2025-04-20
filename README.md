@@ -58,24 +58,22 @@
     cd bot-battlr
 
 2. Install dependencies
-
-  npm install
+          npm install
 3. Start the JSON server
 
 
     -json-server --watch db.json --port 8001
        -Make sure db.json is in the root folder
 
-    API will be available at:
+     API will be available at:
          http://localhost:8001/bots
 
 4. Start the app
-
-       npm run dev
+     npm run dev
 Frontend will be available at:
-http://localhost:3000
+     http://localhost:3000
 
- Project Structure
+ ### Project Structure
 
 
 /bot-battlr
@@ -98,7 +96,7 @@ http://localhost:3000
       Deletes a bot permanently from the backend.
 
 
-     ###Core Deliverables
+     ### Core Deliverables
 
 
     1.Fetch and display bots in BotCollection
@@ -111,7 +109,7 @@ http://localhost:3000
 
     5.Permanently delete a bot (❌) from backend
 
-   ###Optional (Advanced) Features
+   ### Optional (Advanced) Features
 
 Feature	Description
 BotSpecs View	Shows detailed bot info and actions
@@ -120,7 +118,8 @@ Filter by Class	Display bots by class (e.g., Medic, Witch, Support)
 One Bot Per Class	Only allow one bot per class to be in the army
 
 
- ####Learning Outcomes
+ #### Learning Outcomes
+
 ✅ Functional components with hooks
 
 ✅ Prop drilling and state lifting
