@@ -50,7 +50,7 @@
 
 ### Installation Steps
 
-#### 1. Clone the repository
+### 1. Clone the repository
 
 
     git clone https://github.com/your-username/bot-battlr.git
@@ -70,10 +70,12 @@
 
 4. Start the app
      npm run dev
-Frontend will be available at:
+  -Frontend will be available at:
      http://localhost:3000
 
- ### Project Structure
+     ---
+
+### Project Structure
      
               /bot-battlr
               ├── db.json               # Backend data (mock API)
@@ -88,16 +90,16 @@ Frontend will be available at:
               │   ├── App.js
               │   └── index.js
 
-
- ### API Endpoints
+---
+### API Endpoints
    1. FETCH/bots
        Returns all bots.
 
     2. DELETE /bots/:id
       Deletes a bot permanently from the backend.
 
-
-     ### Core Deliverables
+---
+### Core Deliverables
 
 
     1.Fetch and display bots in BotCollection
@@ -110,16 +112,18 @@ Frontend will be available at:
 
     5.Permanently delete a bot (❌) from backend
 
-   ### Optional (Advanced) Features
+---
 
- ### Feature	Description
+### Optional (Advanced) Features
+
+## Feature	Description
     -BotSpecs View	Shows detailed bot info and actions
     -SortBar	Sort bots by health, damage, or armor
     -Filter by Class	Display bots by class (e.g., Medic, Witch, Support)
     -One Bot Per Class	Only allow one bot per class to be in the army
 
 
- ### Learning Outcomes
+##  Learning Outcomes
 
 
 1. Functional components with hooks
@@ -132,10 +136,13 @@ Frontend will be available at:
 
 5. Reusable component structure
 
+---
  ### License
      -This project is for educational use only.
+     
+---
 
-   ### Author
+ ### Author
         -Christina Manga
          -GitHub: @your-username
 
