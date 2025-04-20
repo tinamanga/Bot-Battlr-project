@@ -74,20 +74,21 @@ Frontend will be available at:
      http://localhost:3000
 
  ### Project Structure
+     
+              /bot-battlr
+              ├── db.json               # Backend data (mock API)
+              ├── public/
+              ├── src/
+              │   ├── components/
+              │   │   ├── BotCard.js
+              │   │   ├── BotCollection.js
+              │   │   ├── YourBotArmy.js
+              │   │   ├── BotSpecs.js      # (Advanced)
+              │   │   └── SortBar.js       # (Advanced)
+              │   ├── App.js
+              │   └── index.js
 
 
-/bot-battlr
-├── db.json               # Backend data (mock API)
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── BotCard.js
-│   │   ├── BotCollection.js
-│   │   ├── YourBotArmy.js
-│   │   ├── BotSpecs.js      # (Advanced)
-│   │   └── SortBar.js       # (Advanced)
-│   ├── App.js
-│   └── index.js
  ### API Endpoints
    1. FETCH/bots
        Returns all bots.
