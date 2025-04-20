@@ -38,9 +38,9 @@
 
 ---
 
-## Getting Started
+### Getting Started
 
-###  Prerequisites
+  ##  Prerequisites
 
 - Node.js
 - npm
@@ -112,24 +112,25 @@ Frontend will be available at:
 
    ### Optional (Advanced) Features
 
-Feature	Description
-BotSpecs View	Shows detailed bot info and actions
-SortBar	Sort bots by health, damage, or armor
-Filter by Class	Display bots by class (e.g., Medic, Witch, Support)
-One Bot Per Class	Only allow one bot per class to be in the army
+ ### Feature	Description
+    -BotSpecs View	Shows detailed bot info and actions
+    -SortBar	Sort bots by health, damage, or armor
+    -Filter by Class	Display bots by class (e.g., Medic, Witch, Support)
+    -One Bot Per Class	Only allow one bot per class to be in the army
 
 
- #### Learning Outcomes
+ ### Learning Outcomes
 
-✅ Functional components with hooks
 
-✅ Prop drilling and state lifting
+1. Functional components with hooks
 
-✅ Working with REST APIs
+2. Prop drilling and state lifting
 
-✅ Array methods like .map(), .filter(), .find()
+3. Working with REST APIs
 
-✅ Reusable component structure
+4. Array methods like .map(), .filter(), .find()
+
+5. Reusable component structure
 
  ### License
      -This project is for educational use only.
