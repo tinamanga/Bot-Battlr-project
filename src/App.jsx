@@ -34,7 +34,7 @@ function App() {
     if (sortBy === "armor") return b.armor - a.armor;
     return 0;
   });
-
+// 
   // Enlist bot (one per class)
   const handleEnlist = (bot) => {
     const alreadyEnlisted = myArmy.some((b) => b.bot_class === bot.bot_class);
@@ -45,7 +45,6 @@ function App() {
       setSelectedBot(null);
     }
   };
-
 
 //remove from army state
   const handleRemoveFromArmy = (id) => {
@@ -59,7 +58,8 @@ function App() {
       .then((res) => {
         if (res.ok) {
           // Remove from army state
-          setArmy((prevArmy) => prevArmy.filter((bot) => bot.id !== botId));
+          setBots((prevArmy) => prevArmy.filter((bot) => bot.id !== botId));
+          setMyArmy((prevArmy) => prevArmy.filter((bot) => bot.id !== botId));
         }
       })
       .catch((err) => console.error("Failed to discharge bot:", err));
@@ -70,7 +70,7 @@ function App() {
     <div className="App">
       <h1>Bot Battlr</h1>
 
-      <MyBotArmy bots={myArmy} onRemove={handleRemoveFromArmy} />
+      <MyBotArmy bots={myArmy} onDischarge={handleDischarge} onRemove={handleRemoveFromArmy} />
 
       <SortBar setSortBy={setSortBy} />
       <FilterBar selectedFilters={filters} setSelectedFilters={setFilters} />

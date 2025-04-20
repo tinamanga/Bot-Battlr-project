@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function BotCard({ bot, onClick, onDischarge, showDischarge }) {
+function BotCard({ bot, onClick, handleDischarge, showDischarge }) {
   const { name, avatar_url, catchphrase, bot_class, health, damage, armor } = bot;
 
   return (
@@ -15,8 +15,8 @@ function BotCard({ bot, onClick, onDischarge, showDischarge }) {
       {showDischarge && (
         <button
           onClick={(e) => {
-            // e.stopPropagation(); // prevent parent click event
-            onDischarge();
+            e.stopPropagation(); // prevent parent click event(prevent event bubbling)
+            handleDischarge(bot.id);
           }}
         
           className="discharge-button"

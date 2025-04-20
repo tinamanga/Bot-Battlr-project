@@ -4,7 +4,7 @@ import BotCard from "./BotCard";
 function MyBotArmy({ bots, onRemove, onDischarge }) {
   return (
     <div className="my-army">
-      <h2>My Bot Army</h2>
+      <h2>MyBot Army</h2>
       {
         bots.length === 0 ? (
           <p>No bots enlisted yet.</p>
@@ -15,7 +15,7 @@ function MyBotArmy({ bots, onRemove, onDischarge }) {
                 key={bot.id}
                 bot={bot}
                 onClick={() => onRemove(bot.id)}
-                onDischarge={() => onDischarge(bot.id)}
+               handleDischarge={onDischarge}
                 showDischarge={true}
                 
               />
