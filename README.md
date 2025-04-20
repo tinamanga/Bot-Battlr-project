@@ -1,4 +1,4 @@
-# 🤖 Bot Battlr
+#  Bot Battlr
 
 **Bot Battlr** is a single-page React application that allows users to browse, manage, and build a custom team of battle-ready bots. It showcases skills in components, props, state, events, and data fetching using a local backend (JSON Server).
 
@@ -52,30 +52,31 @@
 
 #### 1. Clone the repository
 
-```bash
-git clone https://github.com/your-username/bot-battlr.git
-cd bot-battlr
+
+    git clone https://github.com/your-username/bot-battlr.git
+
+    cd bot-battlr
 
 2. Install dependencies
-```bash
+
   npm install
 3. Start the JSON server
-```bash
 
-json-server --watch db.json --port 8001
-Make sure db.json is in the root folder
 
-API will be available at:
-http://localhost:8001/bots
+    -json-server --watch db.json --port 8001
+       -Make sure db.json is in the root folder
+
+    API will be available at:
+         http://localhost:8001/bots
 
 4. Start the app
-```bash
-    npm start
+
+       npm run dev
 Frontend will be available at:
 http://localhost:3000
 
  Project Structure
-```bash
+
 
 /bot-battlr
 ├── db.json               # Backend data (mock API)
@@ -95,7 +96,11 @@ http://localhost:3000
 
     2. DELETE /bots/:id
       Deletes a bot permanently from the backend.
-###Core Deliverables
+
+
+     ###Core Deliverables
+
+
     1.Fetch and display bots in BotCollection
 
     2. Add bots to YourBotArmy by clicking
@@ -106,7 +111,7 @@ http://localhost:3000
 
     5.Permanently delete a bot (❌) from backend
 
-   ####Optional (Advanced) Features
+   ###Optional (Advanced) Features
 
 Feature	Description
 BotSpecs View	Shows detailed bot info and actions
