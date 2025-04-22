@@ -8,7 +8,7 @@ function BotSpecs({ bot, onBack, onEnlist, isEnlisted }) {
       <img src={bot.avatar_url} alt={bot.name} className="specs-avatar" />
       <h3>{bot.name}</h3>
       <p className="catchphrase">"{bot.catchphrase}"</p>
-      <div className="bot-info">  
+      <div className="bot-info">
         <p><strong>Class:</strong> {bot.bot_class}</p>
         <p><strong>Health:</strong> {bot.health}</p>
         <p><strong>Damage:</strong> {bot.damage}</p>
