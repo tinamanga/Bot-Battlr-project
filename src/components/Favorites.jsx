@@ -3,7 +3,7 @@ import BotCard from "./BotCard";
 
 function Favorites({ bots, toggleFavorite }) {
   return (
-    <div className="favorites bot-grid">
+    <div className="favorites-bot-grid">
       <h2>Favorite Bots</h2>
       {bots.length === 0 ? (
         <p>No favorite bots yet.</p>
