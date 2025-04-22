@@ -1,7 +1,7 @@
+// BotSpecs.js
 import React from "react";
 
-
-function BotSpecs({ bot, onBack, onEnlist }) {
+function BotSpecs({ bot, onBack, onEnlist, isEnlisted }) {
   return (
     <div className="bot-specs">
       <h2>Bot Details</h2>
@@ -16,7 +16,14 @@ function BotSpecs({ bot, onBack, onEnlist }) {
       </div>
       <div className="specs-buttons">
         <button onClick={onBack}>🔙 Back to List</button>
-        <button onClick={() => onEnlist(bot)}>➕ Enlist Bot</button>
+        {!isEnlisted && (
+          <button onClick={() => onEnlist(bot)}>➕ Enlist Bot</button>
+        )}
+        {isEnlisted && (
+          <button disabled style={{ backgroundColor: "#aaa" }}>
+            Already Enlisted
+          </button>
+        )}
       </div>
     </div>
   );

@@ -114,13 +114,23 @@
 
 ---
 
-### Optional (Advanced) Features
+### (Advanced) Features
 
 ## Feature	Description
     -BotSpecs View	Shows detailed bot info and actions
     -SortBar	Sort bots by health, damage, or armor
     -Filter by Class	Display bots by class (e.g., Medic, Witch, Support)
     -One Bot Per Class	Only allow one bot per class to be in the army
+
+### extra deliverables
+  - search Bots by name
+
+  - Add bots to Favorites
+
+  - Remove bots from Favorites
+
+  - Upgrade bots using Credits
+
 
 
 ##  Learning Outcomes
@@ -135,6 +145,8 @@
 4. Array methods like .map(), .filter(), .find()
 
 5. Reusable component structure
+
+6. Implementing interactive features like favorites and   credit upgrades
 
 ---
  ### License

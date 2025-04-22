@@ -4,6 +4,8 @@ import MyBotArmy from "./components/MyBotArmy";
 import BotSpecs from "./components/BotSpecs";
 import SortBar from "./components/SortBar";
 import FilterBar from "./components/FilterBar";
+import Favorites from "./components/Favorites";
+import SearchBar from "./components/SearchBar";
 import "./index.css";
 
 function App() {
@@ -12,79 +14,116 @@ function App() {
   const [selectedBot, setSelectedBot] = useState(null);
   const [sortBy, setSortBy] = useState("");
   const [filters, setFilters] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [credits, setCredits] = useState(500);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch bots from the server
   useEffect(() => {
     fetch("http://localhost:8001/bots")
       .then((res) => res.json())
       .then((data) => setBots(data))
       .catch((err) => console.error("Failed to fetch bots:", err));
-  }, 
-  
-  []);//dependency array is set to be  empty to make the useEffect run only once
+  }, []);
 
-  // Filter  bots
-  const filteredBots = bots.filter(
-    (bot) => !myArmy.find((b) => b.id === bot.id)
-  ).filter(
-    (bot) => filters.length === 0 || filters.includes(bot.bot_class)
-  );
-//sorting  filtered bots
+  const filteredBots = bots
+    .filter((bot) => filters.length === 0 || filters.includes(bot.bot_class))
+    .filter((bot) => bot.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
   const sortedBots = [...filteredBots].sort((a, b) => {
     if (sortBy === "health") return b.health - a.health;
     if (sortBy === "damage") return b.damage - a.damage;
     if (sortBy === "armor") return b.armor - a.armor;
-     return 0; //returns the bot collection without sorting
+    return 0;
   });
-// 
-  // Enlist bot (one per class)
-  const handleEnlist = (bot) => {
-    const alreadyEnlisted = myArmy.some((b) => b.bot_class === bot.bot_class);
+
+  const toggleEnlist = (bot) => {
+    const alreadyEnlisted = myArmy.some(
+      (b) => b.id === bot.id || b.bot_class === bot.bot_class
+    );
     if (alreadyEnlisted) {
-      alert(`You already have a ${bot.bot_class} bot.`);
-    } else {
-      setMyArmy([...myArmy, bot]);
-      setSelectedBot(null);
+      alert(`You already have a ${bot.bot_class} bot in your army.`);
+      return;
     }
+    setMyArmy((prev) => [...prev, bot]);
+    setBots((prev) => prev.filter((b) => b.id !== bot.id));
+    setSelectedBot(null);
   };
 
-//remove from army state
   const handleRemoveFromArmy = (id) => {
-    setMyArmy(myArmy.filter((bot) => bot.id !== id));
+    setMyArmy((prev) => prev.filter((bot) => bot.id !== id));
   };
-  //delete from backend(discharging bots)
-  function handleDischarge(botId) {
+
+  const handleReleaseBot = (bot) => {
+    setMyArmy((prev) => prev.filter((b) => b.id !== bot.id));
+    setBots((prev) => [...prev, bot]);
+  };
+
+  const handleDischarge = (botId) => {
     fetch(`http://localhost:8001/bots/${botId}`, {
-      method: 'DELETE',
+      method: "DELETE",
     })
       .then((res) => {
         if (res.ok) {
-          // Remove from army state
-          setBots((prevArmy) => prevArmy.filter((bot) => bot.id !== botId));
-          setMyArmy((prevArmy) => prevArmy.filter((bot) => bot.id !== botId));
+          setBots((prev) => prev.filter((bot) => bot.id !== botId));
+          setMyArmy((prev) => prev.filter((bot) => bot.id !== botId));
         }
       })
       .catch((err) => console.error("Failed to discharge bot:", err));
-  }
-  
+  };
+
+  const toggleFavorite = (bot) => {
+    setFavorites((prev) =>
+      prev.find((b) => b.id === bot.id)
+        ? prev.filter((b) => b.id !== bot.id)
+        : [...prev, bot]
+    );
+  };
+
+  const upgradeBot = (botId, stat) => {
+    const cost = 50;
+    if (credits < cost) {
+      alert("Not enough credits!");
+      return;
+    }
+    const updated = bots.map((bot) =>
+      bot.id === botId ? { ...bot, [stat]: bot[stat] + 10 } : bot
+    );
+    setBots(updated);
+    setCredits((prev) => prev - cost);
+  };
 
   return (
     <div className="App">
       <h1>Bot Battlr</h1>
+      <MyBotArmy
+        bots={myArmy}
+        onDischarge={handleDischarge}
+        onRemove={handleRemoveFromArmy}
+        onRelease={handleReleaseBot}
+      />
 
-      <MyBotArmy bots={myArmy} onDischarge={handleDischarge} onRemove={handleRemoveFromArmy} />
-
+      <Favorites bots={favorites} toggleFavorite={toggleFavorite} />
       <SortBar setSortBy={setSortBy} />
       <FilterBar selectedFilters={filters} setSelectedFilters={setFilters} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       {selectedBot ? (
         <BotSpecs
           bot={selectedBot}
           onBack={() => setSelectedBot(null)}
-          onEnlist={handleEnlist}
+          onEnlist={toggleEnlist}
+          isEnlisted={myArmy.some((b) => b.id === selectedBot.id)}
         />
       ) : (
-        <BotCollection bots={sortedBots} onSelect={setSelectedBot} />
+        <BotCollection
+          bots={sortedBots}
+          onSelect={setSelectedBot}
+          toggleEnlist={toggleEnlist}
+          toggleFavorite={toggleFavorite}
+          upgradeBot={upgradeBot}
+          myArmy={myArmy}
+          favorites={favorites}
+        />
       )}
     </div>
   );

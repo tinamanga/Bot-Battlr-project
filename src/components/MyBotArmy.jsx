@@ -1,7 +1,7 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function MyBotArmy({ bots, onRemove, onDischarge }) {
+function MyBotArmy({ bots, onRemove, onDischarge,onRelease }) {
   return (
     <div className="my-army">
       <h2>MyBot Army</h2>
@@ -14,6 +14,7 @@ function MyBotArmy({ bots, onRemove, onDischarge }) {
               <BotCard
                 key={bot.id}
                 bot={bot}
+                onRelease={onRelease}
                 onClick={() => onRemove(bot.id)}
                handleDischarge={onDischarge}
                 showDischarge={true}

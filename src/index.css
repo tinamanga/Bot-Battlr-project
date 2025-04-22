@@ -21,6 +21,9 @@ h2, h3, h4 {
   color: #4d21a0;
   text-align: center;
 }
+p{
+  text-align: center;
+}
 
 /* Buttons */
 button {
@@ -111,6 +114,8 @@ button:disabled {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   color: #2c3e50;
+  align-items: center;
+
 }
 
 /* BotCard Styling */
@@ -170,6 +175,7 @@ button:disabled {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
 }
+
 
 /* Army Bot Card */
 .army-bot {
@@ -250,4 +256,27 @@ button:disabled {
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
+}
+/* Search Bar Styling */
+.search-bar {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  color:black;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  font-weight: 10px;
+  color: black;
+}
+
+.search-bar input:focus {
+  border-color: #3498db;
+  outline: none;
 }
